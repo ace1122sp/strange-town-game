@@ -1,0 +1,399 @@
+$green-color: #36b04b
+
+.disSelect
+  -webkit-tap-highlight-color: transparent
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+=commBtn()
+  font-size: 15px
+  border-radius: 7px
+  background: black
+  color: $green-color
+  border-style: hidden
+
+html
+  min-height: 100vh
+  margin: 0
+
+  body
+    @extend html
+
+.body
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+  background: url('./components/func_objs/img/forest.png')
+  background-repeat: repeat
+  font-family: 'PT Sans Narrow', sans-serif
+
+  header
+    position: absolute
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: row
+    background: linear-gradient(to left, #314e31, black)
+    animation: pullUp ease-out 2000ms
+    animation-delay: 2900ms
+    animation-fill-mode: forwards
+
+    div:nth-child(1), div:nth-child(3)
+      width: 25%
+      opacity: 0
+      animation: popUp ease-in-out 1000ms
+      animation-delay: 4900ms
+      animation-fill-mode: forwards
+
+    div:nth-child(1)>a, div:nth-child(3)>label, div:nth-child(3)>label>a
+      transition: all 300ms ease-out
+
+    div:nth-child(1)>a:hover, div:nth-child(3)>label:hover, div:nth-child(3)>label>a:hover
+      transform: scale(1.1)
+      background: black
+      color: $green-color
+      cursor: pointer
+
+    div:nth-child(1)>a:active, div:nth-child(3)>label:active, div:nth-child(3)>label:active>a
+      color: crimson
+
+    div:nth-child(2)
+      width: 50%
+
+    div
+      display: flex
+      margin: auto
+
+    h1
+      font-family: 'Monoton', cursive
+      color: $green-color
+      text-shadow: 5px 3px 0px black
+      font-size: 30px
+      margin: 5px auto
+      text-align: center
+      animation: introAnim 4300ms ease
+      animation-delay: 1200ms
+      animation-fill-mode: forwards
+      transform: scale(2)
+      opacity: 0
+
+    a, label
+      justify-self: center
+      text-align: center
+      font-size: 21px
+      margin: auto
+      padding: 3px
+      color: black
+      background: white
+      border-radius: 13px
+
+    a
+      text-decoration: none
+
+.content
+  display: flex
+  margin: auto
+
+.introScreen
+  display: flex
+  flex-direction: column
+  background: radial-gradient(rgb(140, 148, 142), #37b04b)
+  color: #d79765
+  text-shadow: 1px 1px 1px rgb(0, 0, 0)
+  border-radius: 20px
+  margin: auto 15%
+  padding: 5px
+  font-family: inherit
+  justify-content: center
+  text-align: justify
+  font-size: 3vw
+
+  a
+    border-style: none
+    font-family: 'Monoton', cursive
+    font-size: 3vw
+    background: black
+    color: #33b04b
+    transition: all 200ms ease-in
+    text-decoration: none
+    text-align: center
+
+  a:hover
+    cursor: pointer
+    transform: translateY(3px) scale(1.02)
+
+  a:active
+    color: crimson
+
+.table
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+  label
+    position: absolute
+    bottom: 20px
+    left: 40px
+    background: black
+    color: #00BCD4
+    font-size: 22px
+    letter-spacing: 5px
+    padding: 4px 10px
+    border-radius: 7px
+    animation: hideLabel 5000ms ease
+    animation-delay: 6000ms
+    animation-fill-mode: forwards
+    opacity: 0
+
+.canvas-g
+  width: 500px
+  height: 500px
+  overflow: hidden
+
+#semaphor
+  border: 4px solid #176725
+  background: radial-gradient(#242624, #37b04b)
+  margin-left: 50px
+
+.command-buttons
+  display: flex
+  margin: auto
+  flex-direction: column
+  margin-right: 35px
+
+.direction-commands
+  display: flex
+  flex-direction: row
+  margin: 40px auto
+
+.master-commands
+  display: flex
+
+  button
+    margin: 22px auto
+    padding: 5px 30px
+    transition: all ease 200ms
+    +commBtn
+
+  button:hover
+    cursor: pointer
+
+  button:active
+    color: white
+    transform: scale(1.05)
+
+#updown
+  display: flex
+  flex-direction: column
+  margin-top: -40px
+
+.direction-button
+  margin: 20px
+  width: 50px
+  height: 50px
+  transition: all ease 200ms
+  +commBtn
+
+.direction-button:hover
+  cursor: pointer
+
+.direction-button:active
+  color: white
+  transform: scale(0.93)
+
+@keyframes introAnim
+  0%
+    opacity: 0
+
+  50%
+    opacity: 1
+
+  100%
+    transform: scale(1)
+    opacity: 1
+
+@keyframes pullUp
+  0%
+    height: 100%
+    background: linear-gradient(to left, #314e31, black)
+
+  90%
+    height: 60px
+    background: rgba(4, 105, 27, 0.55)
+  100%
+    height: auto
+    background: rgba(4, 105, 27, 0.55)
+
+@keyframes popUp
+  0%
+    transform: translateY(-50px)
+    opacity: 1
+  40%
+    transform: translateY(25px)
+    opacity: 1
+  56%
+    transform: translateY(-17px)
+    opacity: 1
+  73%
+    transform: translateY(10px)
+    opacity: 1
+  85%
+    transform: translateY(-8px)
+    opacity: 1
+  100%
+    transform: translateY(0px)
+    opacity: 1
+
+@keyframes hideLabel
+  0%
+    opacity: 0
+  25%
+    opacity: 1
+  75%
+    opacity: 1
+  100%
+    opacity: 0
+
+@media (max-width: 1200px)
+  .table
+    justify-content: space-around
+    margin-top: 70px
+
+    label
+      position: absolute
+      bottom: 20px
+      left: 40px
+      font-size: 22px
+      letter-spacing: 5px
+      padding: 4px 10px
+
+  #semaphor
+    margin-left: 0px
+
+  .command-buttons
+    margin: auto
+    flex-direction: column
+
+  .direction-commands
+    flex-direction: column
+
+  #updown
+    margin-top: 0
+  .master-commands
+
+    button
+      margin: auto 5px
+
+@media (max-width: 1020px)
+  .body
+    header
+      z-index: 2
+  #semaphor
+    transform: scale(0.75)
+    width: 30vw !important
+    height: 38vw !important
+    margin: 0px
+
+  .master-commands
+    button
+      position: absolute
+      z-index: 1
+
+@media (max-width: 900px)
+  .direction-button
+    margin: 5px
+
+@media (max-width: 850px)
+  .canvas-g
+    width: 50vw
+    height: 50vw
+    overflow: hidden
+
+    canvas
+      transform: translate(-9vw, -9vw)
+
+@media (max-width: 790px)
+
+  =commBtn()
+    font-size: 15px
+
+  .body
+    header
+      h1
+        font-size: 4vw
+      a, label
+        font-size: 2vw
+
+  .direction-button
+    margin: 20px
+
+  .canvas-g
+    canvas
+      transform: scale(-19.2vw, -19.2vw)
+
+@media (max-width: 730px)
+  .canvas-g
+    canvas
+      transform: scale(-15vw, -15vw)
+@media (max-width: 630px)
+  .introScreen
+    margin: 70px 15%
+    font-size: 4vw
+
+    a
+      font-size: 5vw
+
+  .direction-button
+    margin: 10px
+    width: 40px
+    height: 40px
+    font-size: 12px
+
+  .canvas-g
+    canvas
+      transform: translate(-20vw, -20vw)
+
+@media (max-width: 550px)
+  .body
+
+    header
+
+      h1
+        font-size: 20px
+
+      div:nth-child(1), div:nth-child(3)
+        display: none
+
+  .canvas-g
+    width: 285px
+    height: 285px
+
+    canvas
+      transform: translate(-24vw, -24vw)
+
+  #semaphor
+    border: 0
+    background: rgba(0, 0, 0, 0.66)
+    position: absolute
+    z-index: 1
+    right: 25px
+    top: 150px
+
+@media (max-width: 460px)
+  .canvas-g
+    width: 200px
+    height: 200px
+
+    canvas
+      transform: translate(-40vw, -40vw)
+
+
+@media (max-width: 400px)
+  .canvas-g
+
+    canvas
+      transform: translate(-50vw, -50vw)
